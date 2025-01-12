@@ -30,24 +30,15 @@ else:
 
 # On choisit l'année que l'on souhaite analyser
 
-
+st.header("01 - Paramètres")
 
 if isExplorationMode==True:
     a= st.slider('Choisir une année', 1996, 2018)
+else:
+    st.write("Année : ", a)
+    st.write("Nombre de clusters : ", k)
 df_per_year = df[(df["TIME_PERIOD"]==a)]
 df_per_year=df_per_year.drop('TIME_PERIOD',axis=1)
-
-
-if isExplorationMode==True:
-    # Heatmap afin de voir quelles variables sont intéréssantes à étudier entre-elles
-    st.subheader("HeatMap pour les variables \"Total des voies d'accès de communication pour 100 habitants\" ET \"Total des abonnements au téléphone cellulaire mobile pour 100 habitants\" selon l'année.")
-    correlation_matrix = df_per_year[["Total des voies d'accès de communication pour 100 habitants","Total des abonnements au téléphone cellulaire mobile pour 100 habitants"]].corr()
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5)
-        
-    plt.title("Matrice de corrélation")
-    st.pyplot(plt)
-
 
 
 # On va remplacer les valeurs NaN par une proportion de la valeur manquante
@@ -86,6 +77,10 @@ if isExplorationMode==True:
     if(selected_linkage_mode=="Ward"):
         selected_metric_mode="Euclidean"
 
+st.divider()
+
+st.header("02  —  Dendogramme")
+
 # On fait le clustering HCA
 
 linkage_matrix = linkage(dfhca[["Total des voies d'accès de communication pour 100 habitants","Total des abonnements au téléphone cellulaire mobile pour 100 habitants"]], method=selected_linkage_mode.lower())
@@ -101,7 +96,10 @@ plt.xlabel('Index')
 plt.ylabel('Distance')
 st.pyplot(plt)
 
+st.divider()
 
+st.header("03  —  Résultats")
+st.subheader("Visualisation")
 
 # On choisit le nombre de cluster que l'on souhaite
 if isExplorationMode==True:
@@ -110,6 +108,7 @@ if isExplorationMode==True:
 HCA = AgglomerativeClustering(n_clusters=k, metric=selected_metric_mode.lower(), linkage=selected_linkage_mode.lower())
 Labels = HCA.fit_predict(dfhca[["Total des voies d'accès de communication pour 100 habitants", 
                                 "Total des abonnements au téléphone cellulaire mobile pour 100 habitants"]])
+
 
 # Création du graphique
 plt.figure(figsize=(8, 6))
@@ -120,6 +119,7 @@ scatter = plt.scatter(
     dfhca["Total des abonnements au téléphone cellulaire mobile pour 100 habitants"], 
     c=Labels, cmap='viridis', marker='o'
 )
+
 
 # Ajouter une légende pour les clusters
 for cluster_id in range(k):  # k étant le nombre de clusters
@@ -136,4 +136,5 @@ st.pyplot(plt)
 
 dfhca['Cluster'] = Labels
 
+st.subheader("Dataset")
 st.write(dfhca)
