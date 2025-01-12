@@ -24,8 +24,8 @@ else:
     isExplorationMode=False
     a=2000
     k=3
-    selected_linkage_mode="ward"
-    selected_metric_mode="euclidean"
+    selected_linkage_mode="Ward"
+    selected_metric_mode="Euclidean"
 
 
 # On choisit l'année que l'on souhaite analyser
@@ -77,18 +77,18 @@ dfhca = dfhca.dropna(subset=[
 # Choisir les modes de distances à appliquer 
 
 if isExplorationMode==True:
-    linkage_mode = ["complete","average","ward","single"]
+    linkage_mode = ["Complete","Average","Ward","Single"]
     selected_linkage_mode = st.selectbox('Choisir la distance linkage :', linkage_mode)
 
-    metric_mode = ["euclidean", "l1", "l2", "manhattan", "cosine"]
-    selected_metric_mode = st.selectbox('Choisir la distance metric :', metric_mode, disabled=(selected_linkage_mode == "ward"))
-    
-    if(selected_linkage_mode=="ward"):
-        selected_metric_mode="euclidean"
+    metric_mode = ["Euclidean", "L1", "L2", "Manhattan", "Cosine"]
+    selected_metric_mode = st.selectbox('Choisir la distance metric :', metric_mode, disabled=(selected_linkage_mode == "Ward"))
+
+    if(selected_linkage_mode=="Ward"):
+        selected_metric_mode="Euclidean"
 
 # On fait le clustering HCA
 
-linkage_matrix = linkage(dfhca[["Total des voies d'accès de communication pour 100 habitants","Total des abonnements au téléphone cellulaire mobile pour 100 habitants"]], method=selected_linkage_mode)
+linkage_matrix = linkage(dfhca[["Total des voies d'accès de communication pour 100 habitants","Total des abonnements au téléphone cellulaire mobile pour 100 habitants"]], method=selected_linkage_mode.lower())
 
 
 
@@ -107,7 +107,7 @@ st.pyplot(plt)
 if isExplorationMode==True:
     k= st.slider('Choisir le nombre de cluster(s) que vous souhaitez', 1, len(dfhca.index))
 
-HCA = AgglomerativeClustering(n_clusters=k, metric=selected_metric_mode, linkage=selected_linkage_mode)
+HCA = AgglomerativeClustering(n_clusters=k, metric=selected_metric_mode.lower(), linkage=selected_linkage_mode.lower())
 Labels = HCA.fit_predict(dfhca[["Total des voies d'accès de communication pour 100 habitants", 
                                 "Total des abonnements au téléphone cellulaire mobile pour 100 habitants"]])
 
