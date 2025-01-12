@@ -8,6 +8,7 @@ import numpy as np
 
 st.title("K-Means")
 
+
 # Import des données
 df=pd.read_csv("data\cleaned_data.csv")
 
@@ -29,22 +30,12 @@ else:
 
 
 
+st.header("01 - Nombre de clusters")
 
 if isExplorationMode==True:
     a= st.slider('Choisir une année', 1996, 2018)
 df_per_year = df[(df["TIME_PERIOD"]==a)]
 df_per_year=df_per_year.drop('TIME_PERIOD',axis=1)
-
-
-if isExplorationMode==True:
-    # Heatmap afin de voir quelles variables sont intéréssantes à étudier entre-elles
-    st.subheader("HeatMap pour les variables \"Total des voies d'accès de communication pour 100 habitants\" ET \"Total des abonnements au téléphone cellulaire mobile pour 100 habitants\" selon l'année.")
-    correlation_matrix = df_per_year[["Total des voies d'accès de communication pour 100 habitants","Total des abonnements au téléphone cellulaire mobile pour 100 habitants"]].corr()
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5)
-        
-    plt.title("Matrice de corrélation")
-    st.pyplot(plt)
 
 
 
@@ -92,14 +83,16 @@ plt.ylabel('Somme des distances au carré')
 
 st.pyplot(plt)
 
+st.divider()
 
+st.header("02  —  Résultats")
 
 # On choisit le nombre de cluster que l'on souhaite
 
 if isExplorationMode==True:
     k= st.slider('Choisir le nombre de cluster(s) que vous souhaitez', 1, len(dfkmean.index))
 
-
+st.subheader("Visualisation")
 
 # On fait le clustering K-Means
 
@@ -133,5 +126,6 @@ st.pyplot(plt)
 
 
 # Affichage des pays et de leur clusteur respectif
+st.subheader("Dataset")
 
 st.write(dfkmean)
