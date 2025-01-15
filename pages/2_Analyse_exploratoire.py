@@ -153,7 +153,7 @@ if mode_selected =="Carte":
         df_graph = df_graph[(df_graph["Pays"] == country)]
 
     df_graph['Année'] = df_graph.index
-    st.write(df_graph)
+    #st.write(df_graph)
 
     plt.plot(df_graph['Année'], df_graph[selected_column], marker='o', label=selected_column, color='blue')
     plt.title(f"{selected_column} au cours du temps")
