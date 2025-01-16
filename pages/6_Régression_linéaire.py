@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from mpl_toolkits.mplot3d import Axes3D
 
 # Configuration de la page
-st.set_page_config(page_title="Régression Linéaire", layout="wide")
+#st.set_page_config(page_title="Régression Linéaire", layout="wide")
 
 st.title("Analyse de Régression Linéaire")
 st.write("Cette application permet de réaliser des régressions linéaires simple et multiple sur un jeu de données prédéfini.")
@@ -34,13 +34,6 @@ data.rename(columns={
         "Voies_acces_100_habitants"
 }, inplace=True)
 
-# Matrice de corrélation
-st.subheader("Matrice de Corrélation")
-corr_matrix = data.select_dtypes(include=[np.number]).corr()
-fig, ax = plt.subplots(figsize=(10, 8))
-sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
-st.pyplot(fig)
-
 # Nettoyage des données
 data_cleaned = data[[
     "Investissements_telecom", 
@@ -50,7 +43,7 @@ data_cleaned = data[[
 ]].dropna()
 
 # Régression Linéaire Simple
-st.subheader("Régression Linéaire Simple")
+st.header("Régression Linéaire Simple")
 X_simple = data_cleaned[["Voies_acces_100_habitants"]]
 y_simple = data_cleaned["Abonnements_mobile_100_habitants"]
 
@@ -77,9 +70,10 @@ ax.set_xlabel("Total des voies d'accès de communication pour 100 habitants")
 ax.set_ylabel("Abonnements mobiles pour 100 habitants")
 ax.legend()
 st.pyplot(fig)
+st.divider()
 
 # Régression Linéaire Multiple
-st.subheader("Régression Linéaire Multiple")
+st.header("Régression Linéaire Multiple")
 predictors = ["Investissements_telecom", "Voies_acces_100_habitants"]
 target = "Abonnements_mobile_100_habitants"
 
@@ -97,9 +91,10 @@ r2 = r2_score(y_test, y_pred)
 
 st.write("*MSE (Erreur Quadratique Moyenne):*", mse)
 st.write("*R² (Coefficient de Détermination):*", r2)
+st.divider()
 
 # Visualisation 3D
-st.subheader("Visualisation 3D de la Régression Multiple")
+st.header("Visualisation 3D de la Régression Multiple")
 x1_range = np.linspace(X[:, 0].min(), X[:, 0].max(), 10)
 x2_range = np.linspace(X[:, 1].min(), X[:, 1].max(), 10)
 x1, x2 = np.meshgrid(x1_range, x2_range)
