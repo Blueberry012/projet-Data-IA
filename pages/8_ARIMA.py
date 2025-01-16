@@ -8,7 +8,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 st.title("Auto-Regressive Integrated Moving Average")
 
-df=pd.read_csv("data\cleaned_data.csv")
+df=pd.read_csv("data/cleaned_data.csv")
 new_columns = ['Pays','Année','Abonnements téléphone (cartes prépayés)','Investissements télécommunications (USD)','Abonnements téléphone (100 habitants)',"Lignes d'accès téléphoniques",'Recettes télécommunication (USD)',"Voies d'accès de communication (100 habitants)","Continent","Développement"]
 df.columns = new_columns
 df = df.drop_duplicates()
