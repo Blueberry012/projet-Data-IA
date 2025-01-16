@@ -15,6 +15,9 @@ st.title("K-Nearest Neaighbors")
 
 #df=pd.read_csv('D:\A3\DataScience\data\TP6_dataset.csv')
 df=pd.read_csv("data/cleaned_data.csv")
+new_columns = ['Pays','Année','Abonnements téléphone (cartes prépayés)','Investissements télécommunications (USD)','Abonnements téléphone (100 habitants)',"Lignes d'accès téléphoniques",'Recettes télécommunication (USD)',"Voies d'accès de communication (100 habitants)","Continent","Développement"]
+df.columns = new_columns
+df = df.drop_duplicates()
 
 df3=df.copy()
 encoder = LabelEncoder()
