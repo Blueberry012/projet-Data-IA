@@ -6,7 +6,7 @@ st.title("Nettoyage et Préparation des données")
 st.header("01 - Exportation des données")
 url = "https://stats.oecd.org/Index.aspx?DataSetCode=TEL"
 st.markdown("Veuillez trouver les données [ici](%s)" % url)
-df=pd.read_csv("data\data.csv")
+df=pd.read_csv("data/data.csv")
 st.write(df)
 st.divider()
 
