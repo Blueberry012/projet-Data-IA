@@ -38,6 +38,9 @@ def circle_marker(map, row, rad, icon_color, popup):
 st.title("Analyse Exploratoire")
 
 df=pd.read_csv("data/cleaned_data.csv")
+new_columns = ['Pays','Année','Abonnements téléphone (cartes prépayés)','Investissements télécommunications (USD)','Abonnements téléphone (100 habitants)',"Lignes d'accès téléphoniques",'Recettes télécommunication (USD)',"Voies d'accès de communication (100 habitants)","Continent","Développement"]
+df.columns = new_columns
+df = df.drop_duplicates()
 
 mode = ["Carte","Statistique Descriptive"]
 mode_selected = st.sidebar.selectbox('Choisir le mode :', mode)
