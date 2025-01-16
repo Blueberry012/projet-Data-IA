@@ -15,7 +15,7 @@ st.title("Régression Logistique Interactive")
 st.write("Cette application utilise un modèle de régression logistique pour prédire si les abonnements mobiles par 100 habitants sont supérieurs à 100.")
 
 # Chemin vers le fichier nettoyé
-DATA_PATH = "data\cleaned_data.csv"
+DATA_PATH = "data/cleaned_data.csv"
 
 try:
     # Charger les données depuis le fichier CSV
@@ -86,7 +86,7 @@ try:
     ax.set_title("Distribution des Probabilités Prédites")
     ax.set_xlabel("Probabilité prédite pour la classe 1 (élevé)")
     ax.set_ylabel("Nombre de prédictions")
-    st.pyplot(fig)*
+    st.pyplot(fig)
     st.divider()
     
     # Courbe sigmoïde
