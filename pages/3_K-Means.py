@@ -10,7 +10,7 @@ st.title("K-Means")
 
 
 # Import des données
-df=pd.read_csv("data\cleaned_data.csv")
+df=pd.read_csv("data/cleaned_data.csv")
 
 #Mode
 mode = ["Exploration","Guide"]
