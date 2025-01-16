@@ -4,8 +4,6 @@ print(st.__version__)
 CURRENT_THEME = "blue"
 IS_DARK_THEME = True
 
-st.set_page_config(layout="wide")
-
 st.title('Projet Data Science')
 
 st.header("Optimisation de l'allocation de la bande passante par apprentissage automatique")
