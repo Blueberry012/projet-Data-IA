@@ -14,7 +14,7 @@ from sklearn.model_selection import cross_validate
 st.title("K-Nearest Neaighbors")
 
 #df=pd.read_csv('D:\A3\DataScience\data\TP6_dataset.csv')
-df=pd.read_csv("data\cleaned_data.csv")
+df=pd.read_csv("data/cleaned_data.csv")
 
 df3=df.copy()
 encoder = LabelEncoder()
