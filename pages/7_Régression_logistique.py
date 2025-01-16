@@ -14,12 +14,12 @@ st.set_page_config(page_title="Régression Logistique", layout="wide")
 st.title("Régression Logistique Interactive")
 st.write("Cette application utilise un modèle de régression logistique pour prédire si les abonnements mobiles par 100 habitants sont supérieurs à 100.")
 
-# Chargement des données
-uploaded_file = st.file_uploader("Téléchargez votre fichier CSV", type=["csv"])
+# Chemin vers le fichier nettoyé
+DATA_PATH = "data\cleaned_data.csv"
 
-if uploaded_file:
-    # Charger les données
-    data = pd.read_csv(uploaded_file)
+try:
+    # Charger les données depuis le fichier CSV
+    data = pd.read_csv(DATA_PATH)
     
     # Renommer les colonnes pour simplifier l'analyse
     data.rename(columns={
@@ -111,5 +111,8 @@ if uploaded_file:
     ax.set_xlabel("Voies d'accès de communication pour 100 habitants")
     ax.set_ylabel("Valeurs normalisées")
     st.pyplot(fig)
-else:
-    st.info("Veuillez télécharger un fichier CSV pour commencer.")
+
+except FileNotFoundError:
+    st.error(f"Le fichier {DATA_PATH} est introuvable. Assurez-vous qu'il est placé au bon emplacement.")
+except KeyError as e:
+    st.error(f"Le fichier ne contient pas la colonne attendue : {e}")
