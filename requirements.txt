@@ -4,6 +4,6 @@ folium
 streamlit_folium
 statistics
 matplotlib
-seaborns
+seaborn
 scikit-learn
 statsmodelss
