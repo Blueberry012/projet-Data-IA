@@ -15,7 +15,7 @@ st.title("Analyse de Régression Linéaire")
 st.write("Cette application permet de réaliser des régressions linéaires simple et multiple sur un jeu de données prédéfini.")
 
 # Charger les données prédéfinies
-DATA_PATH = "data\cleaned_data.csv"  # Remplacez par le chemin vers votre fichier CSV
+DATA_PATH = "data/cleaned_data.csv"  # Remplacez par le chemin vers votre fichier CSV
 try:
     data = pd.read_csv(DATA_PATH, sep=',')
 except FileNotFoundError:
