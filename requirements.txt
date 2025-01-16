@@ -2,10 +2,8 @@ pandas
 streamlit
 folium
 streamlit_folium
-json
 statistics
 matplotlib
-requests
-io
-os
-
+seaborns
+scikit-learn
+statsmodelss
