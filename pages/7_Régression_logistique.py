@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.preprocessing import MinMaxScaler
 
 # Configuration de la page Streamlit
-st.set_page_config(page_title="Régression Logistique", layout="wide")
+#st.set_page_config(page_title="Régression Logistique", layout="wide")
 
 st.title("Régression Logistique Interactive")
 st.write("Cette application utilise un modèle de régression logistique pour prédire si les abonnements mobiles par 100 habitants sont supérieurs à 100.")
@@ -42,7 +42,7 @@ try:
         "Abonnements_categorie"
     ]].dropna()
     
-    st.subheader("Aperçu des données")
+    st.header("Aperçu des données")
     st.write(data_cleaned.head())
     
     # Sélection des variables indépendantes et cible
@@ -63,9 +63,10 @@ try:
     # Prédictions
     y_pred = model_logistic.predict(X_test)
     probas = model_logistic.predict_proba(X_test)[:, 1]
+    st.divider()
     
     # Affichage des résultats
-    st.subheader("Matrice de Confusion")
+    st.header("Matrice de Confusion")
     cm = confusion_matrix(y_test, y_pred)
     fig, ax = plt.subplots()
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", ax=ax)
@@ -74,20 +75,22 @@ try:
     plt.ylabel("Valeurs Réelles")
     st.pyplot(fig)
     
-    st.subheader("Interprétation des données")
+    st.header("Interprétation des données")
     st.text(classification_report(y_test, y_pred))
+    st.divider()
     
     # Distribution des probabilités
-    st.subheader("Distribution des Probabilités Prédites")
+    st.header("Distribution des Probabilités Prédites")
     fig, ax = plt.subplots()
     ax.hist(probas, bins=20, color='skyblue', edgecolor='black')
     ax.set_title("Distribution des Probabilités Prédites")
     ax.set_xlabel("Probabilité prédite pour la classe 1 (élevé)")
     ax.set_ylabel("Nombre de prédictions")
-    st.pyplot(fig)
+    st.pyplot(fig)*
+    st.divider()
     
     # Courbe sigmoïde
-    st.subheader("Courbe Sigmoïde")
+    st.header("Courbe Sigmoïde")
     X_range = np.linspace(0, 1, 500).reshape(-1, 1)
     probas_sigmoid = model_logistic.predict_proba(X_range)[:, 1]
     
@@ -99,9 +102,10 @@ try:
     ax.set_ylabel("Probabilité prédite de la classe 1")
     ax.legend()
     st.pyplot(fig)
+    st.divider()
     
     # Visualisation des données originales
-    st.subheader("Nuage de Points des Données Originales")
+    st.header("Nuage de Points des Données Originales")
     fig, ax = plt.subplots()
     sns.scatterplot(x=scaler.inverse_transform(X_test).flatten(), 
                     y=X_test.flatten(), 
