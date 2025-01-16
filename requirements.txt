@@ -6,4 +6,4 @@ statistics
 matplotlib
 seaborn
 scikit-learn
-statsmodelss
+statsmodels
