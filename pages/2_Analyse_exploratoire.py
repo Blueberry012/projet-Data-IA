@@ -37,7 +37,7 @@ def circle_marker(map, row, rad, icon_color, popup):
 
 st.title("Analyse Exploratoire")
 
-df=pd.read_csv("data\cleaned_data2.csv")
+df=pd.read_csv("data\cleaned_data.csv")
 
 mode = ["Carte","Statistique Descriptive"]
 mode_selected = st.sidebar.selectbox('Choisir le mode :', mode)
