@@ -1,4 +1,4 @@
-Pays,Année,Abonnements téléphone (cartes prépayés),Investissements télécommunications (USD),Abonnements téléphone (100 habitants),Lignes d'accès téléphoniques,Recettes télécommunication (USD),Voies d'accès de communication (100 habitants),Continent,Développement
+Pays,TIME_PERIOD,Abonnements au téléphone cellulaire mobile utilisant des cartes prépayés,Investissements totaux dans les télécommunications (pour lignes fixes et réseau mobile cellulaire) USD,Total des abonnements au téléphone cellulaire mobile pour 100 habitants,Total des lignes d'accès téléphoniques,Total des recettes des télécommunications USD,Total des voies d'accès de communication pour 100 habitants,Continent,Développement
 Allemagne,1996,,,7.06,40963900.0,,57.07,Europe,pays développé
 Allemagne,1997,,,9.97,40687200.0,,59.56,Europe,pays développé
 Allemagne,1998,2087000.0,,16.96,40436720.0,,66.24,Europe,pays développé
