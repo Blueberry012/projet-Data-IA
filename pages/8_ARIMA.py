@@ -76,7 +76,7 @@ if mode_selected =="Prévision":
     st.pyplot(fig)
     st.divider()
 
-    st.header("04 - Transformation: Logarithme et Différentiation")
+    st.header("04 - Transformation: Logarithme et Différenciation")
     st.subheader("Visualisation")
     df_trans = df4[selected_column]
     diff = df_trans.diff().dropna()
@@ -189,7 +189,7 @@ elif mode_selected =="Précision":
     st.pyplot(fig)
     st.divider()
 
-    st.header("04 - Transformation: Logarithme et Différentiation")
+    st.header("04 - Transformation: Logarithme et Différenciation")
     st.subheader("Visualisation")
     df_trans = train[selected_column]
     diff = df_trans.diff().dropna()
