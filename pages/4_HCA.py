@@ -9,7 +9,7 @@ import numpy as np
 st.title("HCA")
 
 # Import des données
-df=pd.read_csv("data\cleaned_data.csv")
+df=pd.read_csv("data/cleaned_data.csv")
 
 #Mode
 mode = ["Exploration","Guide"]
