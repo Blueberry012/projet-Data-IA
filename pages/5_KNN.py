@@ -57,7 +57,7 @@ if mode_selected =="KNN Classification":
     with col2:
         st.subheader("y_train")
         st.write(y_train)
-    st.divider()
+    
 
     st.header("02 - Nombre de k voisins optimal")
     param_grid = {'n_neighbors': range(1, 21)}
@@ -76,7 +76,7 @@ if mode_selected =="KNN Classification":
 
     #st.write("Meilleurs paramètres:", grid_search.best_params_)
     st.write("Meilleur score (Accuracy):", grid_search.best_score_)
-    st.divider()
+    
 
     st.header("03 - Exploration")
     k= st.slider('k-plus proches voisins', 1, 20)
@@ -93,7 +93,7 @@ if mode_selected =="KNN Classification":
     with col2:
         st.subheader("Valeurs réelles")
         st.write(y_test)
-    st.divider()
+    
 
     st.header("04 - Validation croisée")
     scores = cross_val_score(model, X_train, y_train, cv=5, scoring='accuracy')
@@ -142,7 +142,7 @@ elif mode_selected =="KNN Régression":
     with col2:
         st.subheader("y_train")
         st.write(y_train)
-    st.divider()
+    
 
     st.header("02 - Nombre de k voisins optimal")
     st.subheader("GridSearch")
@@ -161,7 +161,7 @@ elif mode_selected =="KNN Régression":
 
     #st.write("Best parameters:", grid_search.best_params_)
     st.write("Best score (R-squared):", grid_search.best_score_)
-    st.divider()
+    
 
     st.header("03 - Exploration")
     k= st.slider('k-plus proches voisins', 1, 20)
@@ -183,7 +183,7 @@ elif mode_selected =="KNN Régression":
     with col2:
         st.subheader("Valeurs réelles")
         st.write(y_test)
-    st.divider()
+    
 
     st.header("04 - Validation croisée")
     scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
