@@ -25,15 +25,16 @@ def Pays(dataframe, pays):
 
 
 def circle_marker(map, row, rad, icon_color, popup):
-    folium.CircleMarker(location=[row['Latitude'], row['Longitude']],
-                        stroke=False,
-                        radius=rad,
-                        color=icon_color,
-                        fill=True,
-                        fill_color=icon_color,
-                        fill_opacity=0.7,
-                        popup=popup,
-                        icon=folium.Icon(color=icon_color, icon='')).add_to(map)
+    folium.CircleMarker(
+        location=[row['Latitude'], row['Longitude']],
+        stroke=False,
+        radius=rad,
+        color=icon_color,
+        fill=True,
+        fill_color=icon_color,
+        fill_opacity=0.7,
+        popup=popup
+    ).add_to(map)
 
 st.title("Analyse Exploratoire")
 
@@ -241,4 +242,5 @@ elif mode_selected =="Statistique Descriptive":
     plt.figure(figsize=(10, 6))
     sns.heatmap(correlation_matrix, annot=True)
     st.pyplot(plt)
+
 
