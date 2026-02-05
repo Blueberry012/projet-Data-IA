@@ -180,7 +180,7 @@ elif mode_selected =="Statistique Descriptive":
     plt.xlabel(selected_column)
     plt.ylabel("Fréquence")
     st.pyplot(plt)
-    st.divider()
+    
 
     st.header("02 - Relation")
     column_names = df.columns.tolist()
@@ -197,7 +197,7 @@ elif mode_selected =="Statistique Descriptive":
     plt.xlabel(selected_column)
     plt.ylabel(selected_column2)
     st.pyplot(plt)
-    st.divider()
+    
 
     st.header("03 - Normalisation des données")
     scaler = StandardScaler()
@@ -225,7 +225,7 @@ elif mode_selected =="Statistique Descriptive":
     plt.ylabel("Fréquence")
     st.pyplot(plt)
 
-    st.divider()
+    
     st.header("04 - Matrice de corrélation")
     df3=df.copy()
     encoder = LabelEncoder()
@@ -241,3 +241,4 @@ elif mode_selected =="Statistique Descriptive":
     plt.figure(figsize=(10, 6))
     sns.heatmap(correlation_matrix, annot=True)
     st.pyplot(plt)
+
