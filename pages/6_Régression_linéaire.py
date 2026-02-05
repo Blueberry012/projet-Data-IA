@@ -70,7 +70,7 @@ ax.set_xlabel("Total des voies d'accès de communication pour 100 habitants")
 ax.set_ylabel("Abonnements mobiles pour 100 habitants")
 ax.legend()
 st.pyplot(fig)
-st.divider()
+
 
 # Régression Linéaire Multiple
 st.header("Régression Linéaire Multiple")
@@ -91,7 +91,7 @@ r2 = r2_score(y_test, y_pred)
 
 st.write("*MSE (Erreur Quadratique Moyenne):*", mse)
 st.write("*R² (Coefficient de Détermination):*", r2)
-st.divider()
+
 
 # Visualisation 3D
 st.header("Visualisation 3D de la Régression Multiple")
@@ -121,4 +121,5 @@ ax.set_xlabel("Valeurs Réelles")
 ax.set_ylabel("Valeurs Prédites")
 ax.legend()
 st.pyplot(fig)
+
 
