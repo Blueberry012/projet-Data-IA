@@ -8,7 +8,7 @@ url = "https://stats.oecd.org/Index.aspx?DataSetCode=TEL"
 st.markdown("Veuillez trouver les données [ici](%s)" % url)
 df=pd.read_csv("data/data.csv")
 st.write(df)
-st.divider()
+
 
 st.header("02 - Transposition des données")
 columns=['Pays','Série','TIME_PERIOD','OBS_VALUE']
@@ -17,14 +17,14 @@ df2 = df[columns]
 df3=df2.copy()
 df3= df.pivot(index=["Pays", "TIME_PERIOD"], columns="Série", values="OBS_VALUE").reset_index()
 st.write(df3)
-st.divider()
+
 
 st.header("03 - Informations Générales")
 df4=df3.copy()
 #df4 = df4[(df4["TIME_PERIOD"] >= 2007) & (df4["TIME_PERIOD"] <= 2017)]
 #st.write(df4.info())
 st.write(df4.describe())
-st.divider()
+
 
 st.header("04 - Nombres de données manquantes par variables")
 nan_count=df4.isna().sum()
@@ -35,7 +35,7 @@ df5 = df5.drop(columns=del_columns)
 
 df6=df5.copy()
 df6 = df6[df6["Pays"] != "OCDE - Total"]
-st.divider()
+
 
 st.header("05 - Enrichissement des données")
 df7=df6.copy()
