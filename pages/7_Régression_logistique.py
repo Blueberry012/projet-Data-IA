@@ -63,7 +63,7 @@ try:
     # Prédictions
     y_pred = model_logistic.predict(X_test)
     probas = model_logistic.predict_proba(X_test)[:, 1]
-    st.divider()
+    
     
     # Affichage des résultats
     st.header("Matrice de Confusion")
@@ -77,7 +77,7 @@ try:
     
     st.header("Interprétation des données")
     st.text(classification_report(y_test, y_pred))
-    st.divider()
+    
     
     # Distribution des probabilités
     st.header("Distribution des Probabilités Prédites")
@@ -87,7 +87,7 @@ try:
     ax.set_xlabel("Probabilité prédite pour la classe 1 (élevé)")
     ax.set_ylabel("Nombre de prédictions")
     st.pyplot(fig)
-    st.divider()
+    
     
     # Courbe sigmoïde
     st.header("Courbe Sigmoïde")
@@ -102,7 +102,7 @@ try:
     ax.set_ylabel("Probabilité prédite de la classe 1")
     ax.legend()
     st.pyplot(fig)
-    st.divider()
+    
     
     # Visualisation des données originales
     st.header("Nuage de Points des Données Originales")
@@ -120,3 +120,4 @@ except FileNotFoundError:
     st.error(f"Le fichier {DATA_PATH} est introuvable. Assurez-vous qu'il est placé au bon emplacement.")
 except KeyError as e:
     st.error(f"Le fichier ne contient pas la colonne attendue : {e}")
+
