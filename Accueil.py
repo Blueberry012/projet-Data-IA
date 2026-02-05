@@ -8,7 +8,7 @@ st.title('Projet Data Science')
 
 st.header("Optimisation de l'allocation de la bande passante par apprentissage automatique")
 
-st.image("image/telecom.jpg", width=500, use_container_width=False, clamp=True)
+st.image("image/telecom.jpg", width=500, width=False, clamp=True)
 
 st.subheader("Description du problème:")
 
