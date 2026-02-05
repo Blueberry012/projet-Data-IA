@@ -28,6 +28,6 @@ st.markdown("check out this [link](%s)" % url)
 
 st.write("L’objectif est d’explorer, nettoyer, analyser et développer un modèle de machine learning capable de prédire la demande de bande passante en temps réel et d'ajuster automatiquement la répartition des ressources réseau pour maximiser l'efficacité et la qualité de service en suivant les étapes décrites ci-dessous.")
 
-st.divider()
+
 
 st.write("N'hésitez pas à parcourir notre application pour en découvrir sur la Data Science")
