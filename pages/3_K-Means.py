@@ -83,7 +83,7 @@ plt.ylabel('Somme des distances au carré')
 
 st.pyplot(plt)
 
-st.divider()
+
 
 st.header("02  —  Résultats")
 
@@ -129,3 +129,4 @@ st.pyplot(plt)
 st.subheader("Dataset")
 
 st.write(dfkmean)
+
