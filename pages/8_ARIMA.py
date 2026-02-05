@@ -48,7 +48,7 @@ mode = ["Prévision","Précision"]
 mode_selected = st.sidebar.selectbox('Choisir le mode :', mode)
 
 if mode_selected =="Prévision":
-    st.divider()
+    
 
     st.header("02 - Visualisation")
     plt.figure()
@@ -56,7 +56,7 @@ if mode_selected =="Prévision":
     plt.title('Evolution')
     plt.xlabel('Year')
     st.pyplot(plt)
-    st.divider()
+    
 
     st.header("03 - Test de stationnarité : Augmented Dickey-Fuller (ADF)")
     result = adfuller(df4[selected_column])
@@ -74,7 +74,7 @@ if mode_selected =="Prévision":
     ax[1].set_title("Partial Autocorrelation Function (PACF)")
     plt.tight_layout()
     st.pyplot(fig)
-    st.divider()
+    
 
     st.header("04 - Transformation: Logarithme et Différenciation")
     st.subheader("Visualisation")
@@ -104,7 +104,7 @@ if mode_selected =="Prévision":
     ax[1].set_title("Partial Autocorrelation Function (PACF)")
     plt.tight_layout()
     st.pyplot(fig)
-    st.divider()
+    
 
     st.header("05 - Prédiction du modèle")
     # Ajustement du modèle ARIMA
@@ -161,7 +161,7 @@ elif mode_selected =="Précision":
     with col2:
         st.subheader("Test")
         st.write(test)
-    st.divider()
+    
 
     st.header("02 - Visualisation")
     plt.figure()
@@ -169,7 +169,7 @@ elif mode_selected =="Précision":
     plt.title('Evolution')
     plt.xlabel('Year')
     st.pyplot(plt)
-    st.divider()
+    
 
     st.header("03 - Test de stationnarité : Augmented Dickey-Fuller (ADF)")
     result = adfuller(train[selected_column])
@@ -187,7 +187,7 @@ elif mode_selected =="Précision":
     ax[1].set_title("Partial Autocorrelation Function (PACF)")
     plt.tight_layout()
     st.pyplot(fig)
-    st.divider()
+    
 
     st.header("04 - Transformation: Logarithme et Différenciation")
     st.subheader("Visualisation")
@@ -217,7 +217,7 @@ elif mode_selected =="Précision":
     ax[1].set_title("Partial Autocorrelation Function (PACF)")
     plt.tight_layout()
     st.pyplot(fig)
-    st.divider()
+    
 
     st.header("05 - Prédiction du modèle")
     # Ajustement du modèle ARIMA
