@@ -7,3 +7,4 @@ matplotlib
 seaborn
 scikit-learn
 statsmodels
+altair==4.2.2
